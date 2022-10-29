@@ -1,12 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/style.css">
     <title>Jogo Melhor de Cinco - Projeto 1</title>
 </head>
+
 <body>
-    
+
+    <article id="startScreen">
+
+        <h1>JOGO MELHOR DE CINCO</h1>
+
+        <div>
+            <label for="">Digite seu nome:</label>
+            <input id="inputName" type="text" placeholder="nome do jogador">
+            <button id="btnStart">Iniciar</button>
+        </div>
+
+    </article>
+
+    <article id="gameScreen">
+
+        <section id="gameScore" class="hide">
+            <p>RODADA <span id="round">Número da rodada</span></p>
+            <p>PLACAR</p>
+            <p><span id="name">Nome do Jogador2</span> <span id="score">Pontos do Jogador1</span></p>
+            <p><span id="name">Nome do Jogador1</span> <span id="score">Pontos do Jogador2</span></p>
+            <p><span id="name">Nome do Jogador3</span> <span id="score">Pontos do Jogador3</span></p>
+            <p><span id="name">Nome do Jogador4</span> <span id="score">Pontos do Jogador4</span></p>
+
+        </section>
+
+        <div id="board">
+
+            MESA
+        </div>
+        
+    </article>
+
+
+
+
+
+
+    <!-- Linkando os scripts -->
+    <script src="./js/MelhorDeCinco.js"></script>
+    <script src="./js/index.js"></script>
 </body>
+
 </html>
