@@ -13,3 +13,20 @@ to DO:
 - São necessárias no mínimo 3 rodadas para haver 1 vencedor. 
 - Exibir botão para jogar novamente ao final do jogo
 
+## Escopo do Projeto
+
+Definindo quais serão as funcionalidades do jogo
+
+- O jogo será um jogo de cartas
+- Haverá 20 cartas.
+    - 5 cartas para cada jogador
+- As cartas serão embaralhadas randomicamente
+- No começo do jogo o jogador deverá informar seu nome
+- A pessoa deverá escolher 1 carta
+  - Se a carta for a mais alta, ganha 1 ponto
+  - Cada jogador começará o jogo com 0 pontos
+  
+  - Estado de vitória
+  - em no máximo 5 rodadas, tem o maior número de pontos
+- Estado de derrota
+    - 

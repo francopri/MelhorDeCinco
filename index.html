@@ -10,22 +10,20 @@
 </head>
 
 <body>
-
-    <article id="startScreen">
-
+    <div id="startScreen">
         <h1>JOGO MELHOR DE CINCO</h1>
 
         <div>
             <label for="">Digite seu nome:</label>
             <input id="inputName" type="text" placeholder="nome do jogador">
-            <button id="btnStart">Iniciar</button>
+            <button id="btnStart">Jogar</button>
         </div>
 
-    </article>
+    </div>
 
-    <article id="gameScreen">
+    <div id="gameScreen">
 
-        <section id="gameScore" class="hide">
+        <div id="gameScore" class="hide">
             <p>RODADA <span id="round">Número da rodada</span></p>
             <p>PLACAR</p>
             <p><span id="name">Nome do Jogador2</span> <span id="score">Pontos do Jogador1</span></p>
@@ -33,19 +31,12 @@
             <p><span id="name">Nome do Jogador3</span> <span id="score">Pontos do Jogador3</span></p>
             <p><span id="name">Nome do Jogador4</span> <span id="score">Pontos do Jogador4</span></p>
 
-        </section>
+            <div id="board">
 
-        <div id="board">
-
-            MESA
+                MESA
+            </div>
         </div>
-        
-    </article>
-
-
-
-
-
+    </div>
 
     <!-- Linkando os scripts -->
     <script src="./js/MelhorDeCinco.js"></script>
