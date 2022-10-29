@@ -17,15 +17,8 @@ class MelhorDeCinco {
             "./assets/card2.webp"
         ]
 
-renderBoard() {
-    //randomizar as cartas
+        this.cardsSelected = [];
 
-    //o metodo sort resulta em 0, 1 ou -1 e joga as cartas para frente ou para trás ou deixa na mesma posição
-    this.cards.sort(() => {
-        return Math.random() - 0.5;
-    })
-
-}
-
+              
     }
 }
