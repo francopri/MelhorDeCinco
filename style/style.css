@@ -7,16 +7,12 @@ body {
 }
 
 .show {
-    display: block;
+    display: flex;
 }
 
 #gameScreen {
     height: 600px;
     border: 3px solid red;
-}
-
-#player-card img {
-    width: 80px;
 }
 
 .cards-stack {
@@ -27,6 +23,8 @@ body {
 
 .card-back {
     position: absolute;
+    width: 70px;
+
 }
 
 .card-back-1 {
@@ -45,9 +43,33 @@ body {
     left: 30px;
 }
 
-.player-score {
+.card-back-5 {
+    left: 40px;
+}
+
+.card-face {
+    width: 90px;
+}
+
+.card-face-player {
+    width: 70px;
+    margin: 5px;
+}
+
+.player-profile {
+    width: 90px;
+}
+
+.player-profile img {
+    width: 80px;
+}
+
+.player-profile-score-container {
+    height: 50px;
+}
+
+.player-profile-score {
     border-radius: 50%;
     background-color: green;
     width: 50px;
-    height: 50px;
 }
