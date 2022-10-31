@@ -30,11 +30,16 @@ class MelhorDeCinco {
         //configura o nome da pessoa
         this.playerName = playerName;
 
+
+        //define lista de nomes
+        const names = ['Patrícia', 'Karen', 'Jino', 'Daniele', 'Guilherme', 'João', 'Marcelo', 'Claudia', 'Cintia', 'Joana', 'Sofia', 'Gabriel', 'Minie', 'Jujuba', 'Amora'];
+
         //instancia cada jogador
+
         const p1 = new Player(this.playerName, 'profile.png');
-        const p2 = new Player("Player 2", 'profile.png');
-        const p3 = new Player("Player 3", 'profile.png');
-        const p4 = new Player("Player 4", 'profile.png');
+        const p2 = new Player(this.getRandomNamePlayer(names), 'profile.png');
+        const p3 = new Player(this.getRandomNamePlayer(names), 'profile.png');
+        const p4 = new Player(this.getRandomNamePlayer(names), 'profile.png');
 
         //inclui cada jogador na lista de jogadores
         this.players.push(p1);
@@ -64,7 +69,7 @@ class MelhorDeCinco {
     }
 
     /**
-     * Sorteia uma lista de cartas para um jogador a partir de um conjunto de cartas possíveis fornecida como parâmetro. As cartas sorteadas para o jogador são removidas da lista de cartas possíveis fornecida.
+     * Sorteia uma lista de cartas para um jogador a partir de um conjunto de cartas possíveis fornecido como parâmetro. As cartas sorteadas para o jogador são removidas da lista de cartas possíveis fornecida.
      * @param {*} cards lista de cartas possíveis
      * @returns a lista de cartas selecionadas para o jogador
      */
@@ -87,6 +92,25 @@ class MelhorDeCinco {
         return selectedCards;
 
     }
+
+
+    /**
+     * Sorteia um nome para um jogador a partir de um conjunto de nomes possíveis fornecido como parâmetro. O nome sorteado é removido da lista de nomes possíveis.
+     * @param {*} names lista de nomes possíveis
+     * @returns 
+     */
+    getRandomNamePlayer(names) {
+
+        let i = Math.floor((Math.random() * names.length) - 1);
+
+        if (i < 0) i = 0;
+
+        const name = names.splice(i, 1);
+
+        return name;
+
+    }
+
 
 }
 
