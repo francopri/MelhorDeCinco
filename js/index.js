@@ -1,9 +1,6 @@
 //MANIPULAÇÃO DO DOM
 
-// instanciando a classe do jogo Melhor de Cinco
-
 let melhorDeCinco;
-
 
 //capturando os elementos de HTML
 const startScreenDiv = document.getElementById('startScreen');
@@ -48,11 +45,8 @@ btnStart.addEventListener('click', () => {
   gameScreenDiv.className = 'show';
 
   // melhorDeCinco.playerName = newNameInput.value;
-
   melhorDeCinco = new MelhorDeCinco();
   melhorDeCinco.init(newNameInput.value);
-
-
 
 });
 
@@ -85,13 +79,11 @@ player4Score.innerText = melhorDeCinco.players[3].score;
 gameScoreTbody.innerHTML = '';
 
 let trs = '';
-
 const playersClone = [...melhorDeCinco.players]; //Clonando o array para fazer o sort
 
 const playersSortedByScore = playersClone.sort((a, b) => b.score - a.score)
 
 for (const player of playersClone) {
-
   trs += `<tr>
   <td>${player.name}</td>
   <td>${player.score}</td>
@@ -101,16 +93,11 @@ for (const player of playersClone) {
 
 gameScoreTbody.innerHTML = trs;
 
-
-
 //Mostrar cartas da pessoa
-
 const cardsPlayer1ContainerDiv = document.getElementById('player1-cards');
-
 cardsPlayer1ContainerDiv.innerHTML = '';
 
 for (const card of melhorDeCinco.players[0].cards) {
-
   cardsPlayer1ContainerDiv.innerHTML += `<div class="d-flex align-items-center justify-content-center card-face card-player">${card}</div>`;
 
 }
@@ -118,7 +105,6 @@ for (const card of melhorDeCinco.players[0].cards) {
 const cardsPlayerDiv = document.querySelectorAll('.card-player');
 
 for (const cardDiv of cardsPlayerDiv) {
-
   cardDiv.addEventListener('click', (event) => {
     alert(event.currentTarget.innerText)
   })
@@ -126,28 +112,22 @@ for (const cardDiv of cardsPlayerDiv) {
 }
 
 //Mostra cartas do computador 1
-
 const cardsPlayer2ContainerDiv = document.getElementById('player2-cards');
 
 cardsPlayer2ContainerDiv.innerHTML = '';
 
 for (let i = 1; i <= 5; i++) {
-
   cardsPlayer2ContainerDiv.innerHTML += `<div class="card-stack-back card-stack-back-${i}"></div>`;
 
 }
 
-
 //Mostra cartas do computador 2
-
 const cardsPlayer3ContainerDiv = document.getElementById('player3-cards');
 
 cardsPlayer3ContainerDiv.innerHTML = '';
 
 for (let i = 1; i <= 5; i++) {
-
   cardsPlayer3ContainerDiv.innerHTML += `<div class="card-stack-back card-stack-back-${i}"></div>`;
-
 }
 
 //Mostra cartas do computador 3

@@ -11,18 +11,20 @@ body {
 }
 
 #gameScreen {
-    height: 600px;
+    height: 800px;
     border: 3px solid red;
 }
 
 .card-face{
-    background-color: whitesmoke;
+    background-color: rgba(32, 79, 190, 0.34);
     border-radius: 10%;
-    border: solid 3px black;
+    border: solid 2px black;
+    font-family: 'Play', sans-serif;
+    font-size: 40px;
+
 }
 
 /* Card Stack */
-
 .cards-stack {
     position: relative;
     top: 0px;
@@ -33,14 +35,12 @@ body {
     position: absolute;
     width: 70px;
     margin: 5px;
-    background-color: bisque;
     border: solid 2px black;
     height: 100px;
     border-radius: 10%;
     background-image: url("../assets/card-back.PNG");
     background-size: cover;
 }
-
 
 .card-stack-back-1 {
     left: 0px;
@@ -61,24 +61,22 @@ body {
 .card-stack-back-5 {
     left: 40px;
 }
-
 /* Card Stack - end */
 
 /* Card Selected */
-
 .card-selected-face {
     width: 90px;
+    font-family: 'Play', sans-serif;
+    font-size: 30px;
 }
 
 .card-selected-back {
     width: 90px;
 }
-
 /* Card Selected - end */
 
 
 /* Card Player */
-
 .card-player {
     margin: 5px;
     width: 70px;
@@ -88,13 +86,11 @@ body {
 .card-player:hover {
     cursor: pointer;
 }
-
 /* Card Player - end*/
 
 
 
 /* Player Profile */
-
 .player-profile {
     width: 90px;
 }
@@ -109,8 +105,7 @@ body {
 
 .player-profile-score {
     border-radius: 50%;
-    background-color: green;
+    background-color: rgba(25, 138, 129, 0.612);
     width: 50px;
 }
-
 /* Player Profile - end */

@@ -6,27 +6,21 @@ class MelhorDeCinco {
 
         //nome do jogador será recebido no inputname
         this.playerName = '';
-
-        //o jogador começa com 0 pontos
-        this.playerScore = 0;
-
+        this.playerScore = 0;  ////o jogador começa com 0 pontos
         this.cardsSelected = [];
-
         this.players = [];
 
     }
-
 
     init(playerName) {
 
         //configura o nome da pessoa
         this.playerName = playerName;
 
-
         //define lista de nomes
         const names = ['Patrícia', 'Karen', 'Jino', 'Daniele', 'Guilherme', 'João', 'Marcelo', 'Claudia', 'Cíntia', 'Joana', 'Sofia', 'Gabriel', 'Minie', 'Jujuba', 'Amora'];
 
-        //instancia cada jogador
+        //instanciando cada jogador
         const p1 = new Player(this.playerName, 'profile.png');
         const p2 = new Player(this.getRandomNamePlayer(names), 'profile.png');
         const p3 = new Player(this.getRandomNamePlayer(names), 'profile.png');
