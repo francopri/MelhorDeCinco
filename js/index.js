@@ -86,8 +86,7 @@ gameScoreTbody.innerHTML = '';
 
 let trs = '';
 
-//Clonando o array para fazer o sort
-const playersClone = [...melhorDeCinco.players];
+const playersClone = [...melhorDeCinco.players]; //Clonando o array para fazer o sort
 
 const playersSortedByScore = playersClone.sort((a, b) => b.score - a.score)
 
@@ -104,9 +103,63 @@ gameScoreTbody.innerHTML = trs;
 
 
 
+//Mostrar cartas da pessoa
+
+const cardsPlayer1ContainerDiv = document.getElementById('player1-cards');
+
+cardsPlayer1ContainerDiv.innerHTML = '';
+
+for (const card of melhorDeCinco.players[0].cards) {
+
+  cardsPlayer1ContainerDiv.innerHTML += `<div class="d-flex align-items-center justify-content-center card-face card-player">${card}</div>`;
+
+}
+
+const cardsPlayerDiv = document.querySelectorAll('.card-player');
+
+for (const cardDiv of cardsPlayerDiv) {
+
+  cardDiv.addEventListener('click', (event) => {
+    alert(event.currentTarget.innerText)
+  })
+
+}
+
+//Mostra cartas do computador 1
+
+const cardsPlayer2ContainerDiv = document.getElementById('player2-cards');
+
+cardsPlayer2ContainerDiv.innerHTML = '';
+
+for (let i = 1; i <= 5; i++) {
+
+  cardsPlayer2ContainerDiv.innerHTML += `<div class="card-stack-back card-stack-back-${i}"></div>`;
+
+}
 
 
+//Mostra cartas do computador 2
 
+const cardsPlayer3ContainerDiv = document.getElementById('player3-cards');
 
+cardsPlayer3ContainerDiv.innerHTML = '';
+
+for (let i = 1; i <= 5; i++) {
+
+  cardsPlayer3ContainerDiv.innerHTML += `<div class="card-stack-back card-stack-back-${i}"></div>`;
+
+}
+
+//Mostra cartas do computador 3
+
+const cardsPlayer4ContainerDiv = document.getElementById('player4-cards');
+
+cardsPlayer4ContainerDiv.innerHTML = '';
+
+for (let i = 1; i <= 5; i++) {
+
+  cardsPlayer4ContainerDiv.innerHTML += `<div class="card-stack-back card-stack-back-${i}"></div>`;
+
+}
 
 

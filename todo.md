@@ -29,4 +29,31 @@ Definindo quais serão as funcionalidades do jogo
   - Estado de vitória
   - em no máximo 5 rodadas, tem o maior número de pontos
 - Estado de derrota
-    - 
+
+
+
+
+## TEMP
+- fonte para cartas do jogador
+- estilo completo para o score de cada jogador
+- figurinhas para profiles
+- estilizar o placar
+- tirar a concatenaçao das cartas sorteadas
+- tirar linhas dos divs
+- criar painel de debug de cartas sorteadas
+- Mecanismo de definição dos nomes dos computadores e suas imagens de profile
+- sortear cartas dos computadores: 
+  - sortear 1 carta de cada computador
+  - mostrar a carta sorteada no meio
+  - remover uma carta do jogador
+- quando o jogador clicar em uma carta:
+  - mostrar a carta clicada no meio
+  - remover a carta da lista do jogador
+  - verificar qual jogador teve a maior carta e incrementar a pontuação 
+  - Atualizar placar
+  - verificar se alguém já ganhou
+  - Se ninguém ganhou
+    - limpar as cartas do centro 
+    - sortear cartas dos computadores novamente.  
+  - Se alguém ganhou, mostrar o resultado e um botão para jogar novamente.
+- 

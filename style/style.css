@@ -15,46 +15,85 @@ body {
     border: 3px solid red;
 }
 
+.card-face{
+    background-color: whitesmoke;
+    border-radius: 10%;
+    border: solid 3px black;
+}
+
+/* Card Stack */
+
 .cards-stack {
     position: relative;
     top: 0px;
     left: 0px;
 }
 
-.card-back {
+.card-stack-back {
     position: absolute;
     width: 70px;
-
+    margin: 5px;
+    background-color: bisque;
+    border: solid 2px black;
+    height: 100px;
+    border-radius: 10%;
+    background-image: url("../assets/card-back.PNG");
+    background-size: cover;
 }
 
-.card-back-1 {
+
+.card-stack-back-1 {
     left: 0px;
 }
 
-.card-back-2 {
+.card-stack-back-2 {
     left: 10px;
 }
 
-.card-back-3 {
+.card-stack-back-3 {
     left: 20px;
 }
 
-.card-back-4 {
+.card-stack-back-4 {
     left: 30px;
 }
 
-.card-back-5 {
+.card-stack-back-5 {
     left: 40px;
 }
 
-.card-face {
+/* Card Stack - end */
+
+/* Card Selected */
+
+.card-selected-face {
     width: 90px;
 }
 
-.card-face-player {
-    width: 70px;
-    margin: 5px;
+.card-selected-back {
+    width: 90px;
 }
+
+/* Card Selected - end */
+
+
+/* Card Player */
+
+.card-player {
+    margin: 5px;
+    width: 70px;
+    height: 100px;
+}
+
+.card-player:hover {
+    cursor: pointer;
+}
+
+/* Card Player - end*/
+
+
+
+/* Player Profile */
 
 .player-profile {
     width: 90px;
@@ -73,3 +112,5 @@ body {
     background-color: green;
     width: 50px;
 }
+
+/* Player Profile - end */

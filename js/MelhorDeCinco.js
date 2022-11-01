@@ -10,14 +10,6 @@ class MelhorDeCinco {
         //o jogador começa com 0 pontos
         this.playerScore = 0;
 
-        this.cards = [
-            "./assets/card2.webp",
-            "./assets/card2.webp",
-            "./assets/card2.webp",
-            "./assets/card2.webp",
-            "./assets/card2.webp"
-        ]
-
         this.cardsSelected = [];
 
         this.players = [];
@@ -32,10 +24,9 @@ class MelhorDeCinco {
 
 
         //define lista de nomes
-        const names = ['Patrícia', 'Karen', 'Jino', 'Daniele', 'Guilherme', 'João', 'Marcelo', 'Claudia', 'Cintia', 'Joana', 'Sofia', 'Gabriel', 'Minie', 'Jujuba', 'Amora'];
+        const names = ['Patrícia', 'Karen', 'Jino', 'Daniele', 'Guilherme', 'João', 'Marcelo', 'Claudia', 'Cíntia', 'Joana', 'Sofia', 'Gabriel', 'Minie', 'Jujuba', 'Amora'];
 
         //instancia cada jogador
-
         const p1 = new Player(this.playerName, 'profile.png');
         const p2 = new Player(this.getRandomNamePlayer(names), 'profile.png');
         const p3 = new Player(this.getRandomNamePlayer(names), 'profile.png');
@@ -93,7 +84,6 @@ class MelhorDeCinco {
 
     }
 
-
     /**
      * Sorteia um nome para um jogador a partir de um conjunto de nomes possíveis fornecido como parâmetro. O nome sorteado é removido da lista de nomes possíveis.
      * @param {*} names lista de nomes possíveis
@@ -110,7 +100,6 @@ class MelhorDeCinco {
         return name;
 
     }
-
 
 }
 
