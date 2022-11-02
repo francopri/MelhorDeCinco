@@ -41,14 +41,15 @@ Definindo quais serão as funcionalidades do jogo
 ~~- tirar linhas dos divs~~
 ~~- criar painel de debug de cartas sorteadas~~
 - REVISAR atributo playername na classe melhor de cinco
+- REVISAR NOME PLAYER - PlayerHuman e playerComputer
 - Mecanismo de definição dos nomes dos computadores e suas imagens de profile
-- sortear cartas dos computadores: 
-  - sortear 1 carta de cada computador
-  - mostrar a carta sorteada no meio
-  - remover uma carta do jogador
-- quando o jogador clicar em uma carta:
-  - mostrar a carta clicada no meio
-  - remover a carta da lista do jogador
+~~- sortear cartas dos computadores: ~~
+  ~~- sortear 1 carta de cada computador~~
+  ~~- mostrar a carta sorteada no meio~~
+  ~~- remover uma carta do jogador~~
+~~- quando o jogador clicar em uma carta:~~
+  ~~- mostrar a carta clicada no meio~~
+  ~~- remover a carta da lista do jogador~~
   - verificar qual jogador teve a maior carta e incrementar a pontuação 
   - Atualizar placar
   - verificar se alguém já ganhou
