@@ -28,154 +28,167 @@
         </div>
     </div>
 
-    <div id="gameScreen" class="container">
-        <div class="row">
-            <div class="col-3"></div>
-            <div class="col">
-                <div class="row h-100 align-items-center justify-content-center">
-                    <div class="row" id="player-card">
-                        <div class="col d-flex justify-content-end me-4">
-                            <div class="player-profile text-center">
-                                <div> <img id="player3-photo" src="./assets/profile.png"></div>
-                                <div id="player3-name"></div>
-                                <div class="d-flex justify-content-center player-profile-score-container">
-                                    <div id="player3-score"
-                                        class="d-flex h-100 align-items-center justify-content-center player-profile-score">
+    <div class="row h-100 justify-content-center align-content-center p-5 game-screen-container">
+        <div id="gameScreen" >
+            <div class="row">
+                <div class="col-3"></div>
+                <div class="col">
+                    <div class="row h-100 align-items-center justify-content-center">
+                        <div class="row" id="player-card">
+                            <div class="col d-flex justify-content-end me-4">
+                                <div class="player-profile text-center">
+                                    <div> <img id="player3-photo" src="./assets/profile.png"></div>
+                                    <div id="player3-name" class="player-name"></div>
+                                    <div class="d-flex justify-content-center player-profile-score-container">
+                                        <div id="player3-score"
+                                            class="d-flex h-100 align-items-center justify-content-center player-profile-score">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="player3-cards" class="col d-flex align-items-center cards-stack">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3"></div>
+            </div>
+            <div class="row">
+                <div class="col-3">
+                    <div class="row h-100 align-items-center justify-content-center">
+                        <div class="row" id="player-card">
+                            <div class="col d-flex justify-content-end me-4">
+                                <div class="player-profile text-center">
+                                    <div> <img id="player2-photo" src="./assets/profile.png"></div>
+                                    <div id="player2-name" class="player-name"></div>
+                                    <div class="d-flex justify-content-center player-profile-score-container">
+                                        <div id="player2-score"
+                                            class="d-flex h-100 align-items-center justify-content-center player-profile-score">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="player2-cards" class="col d-flex align-items-center cards-stack">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col p-3 text-center">
+                    <div class="row center-table">
+                        <div class="col d-flex align-items-center justify-content-center">
+                            <div id="card-selected-player2"
+                                class="d-flex align-items-center justify-content-center card-selected card-back">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="row h-50 align-items-center p-3">
+                                <div class="col d-flex justify-content-center">
+                                    <div id="card-selected-player3"
+                                        class="d-flex align-items-center justify-content-center card-selected card-back">
+                                        <div class="row"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row h-50 align-items-center justify-content-center p-3">
+                                <div class="col d-flex justify-content-center">
+                                    <div id="card-selected-player1"
+                                        class="d-flex align-items-center justify-content-center card-selected">
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div id="player3-cards" class="col d-flex align-items-center cards-stack">
+                        <div class="col d-flex align-items-center justify-content-center">
+                            <div id="card-selected-player4"
+                                class="d-flex align-items-center justify-content-center card-selected card-back">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="row h-100 align-items-center justify-content-center">
+                        <div class="row" id="player-card">
+
+                            <div class="col d-flex justify-content-end me-4">
+                                <div class="player-profile text-center">
+                                    <div> <img id="player4-photo" src="./assets/profile.png"></div>
+                                    <div id="player4-name" class="player-name"></div>
+                                    <div class="d-flex justify-content-center player-profile-score-container">
+                                        <div id="player4-score"
+                                            class="d-flex h-100 align-items-center justify-content-center player-profile-score">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="player4-cards" class="col d-flex align-items-center cards-stack">
+
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-3"></div>
+            <div class="row">
+                <div class="col-3">
+                    <button id="btnNewGame" class="hide">Jogar novamente</button>
+
+                    <table id="debug-table">
+                        <thead>
+                            <tr>
+                                <th>JOGADOR</th>
+                                <th class="text-center">CARTAS</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+
+                </div>
+                <div class="col">
+                    <div class="row h-90 align-items-center justify-content-center">
+                        <div class="row" id="player-card">
+                            <div class="col-3 d-flex justify-content-end me-4">
+                                <div class="player-profile text-center">
+                                    <div> <img id="player1-photo" src="./assets/profile.png"></div>
+                                    <div id="player1-name" class="player-name"></div>
+                                    <div class="d-flex justify-content-center player-profile-score-container">
+                                        <div id="player1-score"
+                                            class="d-flex h-100 align-items-center justify-content-center player-profile-score">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="player1-cards"
+                                class="col d-flex align-items-center justify-content-start cards-stack">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+
+
+                    <div id="gameScore">
+                        <div class="d-flex justify-content-center">
+                            <p>RODADA: <span id="current-round"></span></p>
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <table class="score-table">
+                                <thead>
+                                    <tr>
+                                        <th>JOGADOR</th>
+                                        <th class="text-center">PONTOS</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="row">
-            <div class="col-3">
-                <div class="row h-100 align-items-center justify-content-center">
-                    <div class="row" id="player-card">
-                        <div class="col d-flex justify-content-end me-4">
-                            <div class="player-profile text-center">
-                                <div> <img id="player2-photo" src="./assets/profile.png"></div>
-                                <div id="player2-name"></div>
-                                <div class="d-flex justify-content-center player-profile-score-container">
-                                    <div id="player2-score"
-                                        class="d-flex h-100 align-items-center justify-content-center player-profile-score">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="player2-cards" class="col d-flex align-items-center cards-stack">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col p-3">
-                <div class="row h-100 center-table">
-                    <div class="col d-flex align-items-center justify-content-center">
-                        <div id="card-selected-player2" class="card-selected card-back"></div>
-                    </div>
-                    <div class="col">
-                        <div class="row h-50 align-items-center p-3">
-                            <div class="col d-flex justify-content-center">
-                                <div id="card-selected-player3" class="card-selected card-back"></div>
-                            </div>
-                        </div>
-                        <div class="row h-50 align-items-center justify-content-center p-3">
-                            <div class="col d-flex justify-content-center">
-                                <div id="card-selected-player1" class="card-selected"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col d-flex align-items-center justify-content-center">
-                        <div id="card-selected-player4" class="card-selected card-back"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-3">
-                <div class="row h-100 align-items-center justify-content-center">
-                    <div class="row" id="player-card">
 
-                        <div class="col d-flex justify-content-end me-4">
-                            <div class="player-profile text-center">
-                                <div> <img id="player4-photo" src="./assets/profile.png"></div>
-                                <div id="player4-name"></div>
-                                <div class="d-flex justify-content-center player-profile-score-container">
-                                    <div id="player4-score"
-                                        class="d-flex h-100 align-items-center justify-content-center player-profile-score">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="player4-cards" class="col d-flex align-items-center cards-stack">
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-3">
-                <button id="btnNewGame" class="hide">Jogar novamente</button>
-
-                <table id="debug-table">
-                    <thead>
-                        <tr>
-                            <th>JOGADOR</th>
-                            <th class="text-center">CARTAS</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
-
-            </div>
-            <div class="col">
-                <div class="row h-90 align-items-center justify-content-center">
-                    <div class="row" id="player-card">
-                        <div class="col d-flex justify-content-end me-4">
-                            <div class="player-profile text-center">
-                                <div> <img id="player1-photo" src="./assets/profile.png"></div>
-                                <div id="player1-name"></div>
-                                <div class="d-flex justify-content-center player-profile-score-container">
-                                    <div id="player1-score"
-                                        class="d-flex h-100 align-items-center justify-content-center player-profile-score">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="player1-cards"
-                            class="col d-flex align-items-center justify-content-center cards-stack">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-3">
-
-
-                <div id="gameScore">
-                    <div class="d-flex justify-content-center">
-                        <p>RODADA: <span id="round">Número da rodada</span></p>
-                    </div>
-                    <div class="d-flex justify-content-center">
-                        <table class="score-table">
-                            <thead>
-                                <tr>
-                                    <th>JOGADOR</th>
-                                    <th class="text-center">PONTOS</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            </tbody>
-                        </table>
-
-                    </div>
-
-                </div>
-            </div>
-        </div>
+        
     </div>
 
     <!-- Linkando os scripts -->

@@ -1,3 +1,8 @@
+html, 
+body {
+    height: 100%;
+}
+
 body {
     margin: 0px;
 }
@@ -10,12 +15,18 @@ body {
     display: flex;
 }
 
+.game-screen-container{
+background-color: #333333;
+}
+
 #gameScreen {
-    height: 750px;
-    border: 3px solid red;
+    border: 1px solid black;
+    box-shadow: 2px 2px 20px black;
     background-image: url(../assets/mesa.jpg);
     color: white;
     font-weight: bold;
+    padding-bottom: 6px;
+
 }
 
 .card-face {
@@ -24,11 +35,20 @@ body {
     font-family: 'Play', sans-serif;
     font-size: 40px;
     color: black;
+    box-shadow: 2px 2px 2px black;
+    background-color: rgb(222, 214, 214);
+
+}
+
+.card-face-winner {
+    color: red;
 }
 
 .card-back {
     background-image: url("../assets/card-back-2.PNG");
     background-size: cover;
+    box-shadow: 2px 2px 2px black;
+
 }
 
 /* Card Stack */
@@ -96,18 +116,24 @@ body {
 /* Card Player - end*/
 
 /* Player Profile */
+
 .player-profile {
     width: 90px;
+
+}
+
+.player-name{
+    text-shadow: 2px 2px 5px black;
 }
 
 .player-profile img {
     width: 80px;
+
 }
 
 .player-profile-score-container {
     margin-top: 5px;
     height: 35px;
-    
 }
 
 .player-profile-score {
@@ -122,8 +148,9 @@ body {
 
 /* Centro da mesa */
 .center-table {
-    background-color: rgba(255, 255, 255, 0.103);
+    background-color: rgba(255, 255, 255, 0.164);
     border-radius: 20%;
+    box-shadow: 1px 1px 1px 1px black;
 }
 
 /* Centro da mesa - end */

@@ -19,9 +19,6 @@ function startGame() {
   //mostra dados dos jogadores
   initPlayers();
 
-  //Mostrar o score
-  showScoreTable();
-
   //Mostrar cartas da pessoa
   showPlayerCards();
 
@@ -34,6 +31,13 @@ function startGame() {
 }
 
 function showScoreTable() {
+
+  //atualiza o número da rodada
+  const currentRoundSpan = document.getElementById('current-round');
+
+  currentRoundSpan.innerText = melhorDeCinco.currentRound;
+
+  //atualiza a tabela de pontos
 
   const gameScoreDiv = document.getElementById('gameScore');
   const gameScoreTbody = gameScoreDiv.querySelector('table > tbody');
@@ -51,6 +55,7 @@ function showScoreTable() {
   </tr>`
 
   }
+
 }
 
 function showDebugTable() {
@@ -92,17 +97,30 @@ function showPlayerCards() {
   for (const card of melhorDeCinco.players[0].cards) {
     cardsPlayer1ContainerDiv.innerHTML += `<div class="d-flex align-items-center justify-content-center card-face card-player">${card}</div>`;
   }
+
+  configPlayerCardsListener(true);
+
+}
+
+function configPlayerCardsListener(activate) {
+
   const cardsPlayerDiv = document.querySelectorAll('.card-player');
 
   for (const cardDiv of cardsPlayerDiv) {
 
-    cardDiv.addEventListener('click', playerCardClick);
+
+    if (activate) {
+      cardDiv.addEventListener('click', playerCardClick);
+    } else {
+      cardDiv.removeEventListener('click', playerCardClick);
+    }
 
   }
 
+
 }
 
-function showComputersCards() {
+function showComputersCardsStack() {
 
   for (let p = 1; p <= 3; p++) {
 
@@ -112,6 +130,26 @@ function showComputersCards() {
 
     for (let i = 1; i <= melhorDeCinco.players[p].cards.length; i++) {
       cardsPlayerContainerDiv.innerHTML += `<div class="card-back card-stack-back card-stack-back-${i}"></div>`;
+    }
+
+  }
+
+}
+
+function resetSelectedCards() {
+
+  for (let p = 1; p <= 4; p++) {
+
+    const cardSelectedPlayer1Div = document.getElementById(`card-selected-player${p}`);
+
+    cardSelectedPlayer1Div.classList.remove('card-face');
+
+    cardSelectedPlayer1Div.innerText = '';
+
+    if (p != 1) {
+
+      cardSelectedPlayer1Div.classList.add('card-back');
+
     }
 
   }
@@ -157,27 +195,88 @@ function startRound() {
 
   melhorDeCinco.selectComputerCards();
 
-  showComputersCards();
+  resetSelectedCards();
 
+  showComputersCardsStack();
+
+  showScoreTable();
 
 }
 
 function playerCardClick(event) {
 
+  //desativa o click nas cartas do jogador
+  configPlayerCardsListener(false);
+
+  //obtem o valor da carta escolhida pelo jogador
   const playerCardValue = +event.currentTarget.innerText;
 
+  //remove a carta escolhida da lista de cartas do jogador
   event.currentTarget.parentNode.removeChild(event.currentTarget);
 
-  melhorDeCinco.setPlayerSelectedCard(playerCardValue);
 
-  showSelectedPlayerCard(1, playerCardValue);
-  showSelectedPlayerCard(2, melhorDeCinco.cardsSelected[1]);
-  showSelectedPlayerCard(3, melhorDeCinco.cardsSelected[2]);
-  showSelectedPlayerCard(4, melhorDeCinco.cardsSelected[3]);
+  //mostra os valores das cartas de todos os jogadores
+  showSelectedPlayerCardFace(1, playerCardValue);
+  showSelectedPlayerCardFace(2, melhorDeCinco.cardsSelected[1]);
+  showSelectedPlayerCardFace(3, melhorDeCinco.cardsSelected[2]);
+  showSelectedPlayerCardFace(4, melhorDeCinco.cardsSelected[3]);
+
+
+  //executa a jogada da rodada
+  const result = melhorDeCinco.playRound(playerCardValue);
+
+
+  //remover o destaque da carta vencedora da rodada anterior
+
+  const currentCardWinnerDiv = document.querySelector('.card-face-winner');
+
+  if (currentCardWinnerDiv)
+    currentCardWinnerDiv.classList.remove('card-face-winner');
+
+
+  //destaca a carta que ganhou a rodada
+
+  const cardWinnerDiv = document.getElementById(`card-selected-player${result.indexPlayerRoundWinner + 1}`);
+
+  cardWinnerDiv.classList.add('card-face-winner');
+
+
+  //atualizar tabela de score
+
+  showScoreTable();
+
+
+  //atualizar o score de cada jogador
+
+  showPlayersScore();
+
+
+  //se o jogo não acabou  inicia um novo round
+
+  if (!result.gameFinished) {
+
+    setTimeout(() => {
+      startRound();
+      configPlayerCardsListener(true);
+    }, 3000);
+
+  }
 
 }
 
-function showSelectedPlayerCard(playerNum, card){
+function showPlayersScore() {
+
+  for (let i = 0; i <= 3; i++) {
+
+    const playerScoreDiv = document.getElementById(`player${i + 1}-score`);
+
+    playerScoreDiv.innerText = melhorDeCinco.players[i].score;
+
+  }
+
+}
+
+function showSelectedPlayerCardFace(playerNum, card) {
 
   const cardSelectedPlayer1Div = document.getElementById(`card-selected-player${playerNum}`);
 
