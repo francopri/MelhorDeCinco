@@ -29,13 +29,12 @@
     </div>
 
     <div id="gameScreen" class="container">
-        <div class="row" style="border:green solid 3px;">
-            <div class="col-3" style="border:blue solid 3px;"></div>
-            <div class="col" style="border:blue solid 3px;">
-
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col">
                 <div class="row h-100 align-items-center justify-content-center">
                     <div class="row" id="player-card">
-                        <div class="col">
+                        <div class="col d-flex justify-content-end me-4">
                             <div class="player-profile text-center">
                                 <div> <img id="player3-photo" src="./assets/profile.png"></div>
                                 <div id="player3-name"></div>
@@ -51,14 +50,13 @@
                     </div>
                 </div>
             </div>
-            <div class="col-3" style="border:blue solid 3px;"></div>
+            <div class="col-3"></div>
         </div>
-        <div class="row" style="border:green solid 3px;">
-            <div class="col-3" style="border:blue solid 3px;">
+        <div class="row">
+            <div class="col-3">
                 <div class="row h-100 align-items-center justify-content-center">
                     <div class="row" id="player-card">
-
-                        <div class="col">
+                        <div class="col d-flex justify-content-end me-4">
                             <div class="player-profile text-center">
                                 <div> <img id="player2-photo" src="./assets/profile.png"></div>
                                 <div id="player2-name"></div>
@@ -74,34 +72,33 @@
                     </div>
                 </div>
             </div>
-            <div class="col" style="border:blue solid 3px;">
-                <div class="row h-100" style="border:purple solid 3px;">
-                    <div class="col d-flex align-items-center justify-content-center" style="border:purple solid 3px;">
-                        <img src="./assets/card-back.PNG" class="card-face card-selected-back">
+            <div class="col p-3">
+                <div class="row h-100 center-table">
+                    <div class="col d-flex align-items-center justify-content-center">
+                        <div id="card-selected-player2" class="card-selected card-back"></div>
                     </div>
-                    <div class="col" style="border:purple solid 3px;">
-                        <div class="row h-50 align-items-center " style="border:purple solid 3px;">
-                            <div class="col d-flex justify-content-center" style="border:purple solid 3px;">
-                                <img src="./assets/card-back.PNG" class="card-face card-selected-back">
+                    <div class="col">
+                        <div class="row h-50 align-items-center p-3">
+                            <div class="col d-flex justify-content-center">
+                                <div id="card-selected-player3" class="card-selected card-back"></div>
                             </div>
                         </div>
-                        <div class="row h-50 align-items-center justify-content-center"
-                            style="border:purple solid 3px;">
-                            <div class="col d-flex justify-content-center" style="border:purple solid 3px;">
-                                <img src="./assets/card-back.PNG" class="card-face card-selected-back">
+                        <div class="row h-50 align-items-center justify-content-center p-3">
+                            <div class="col d-flex justify-content-center">
+                                <div id="card-selected-player1" class="card-selected"></div>
                             </div>
                         </div>
                     </div>
-                    <div class="col d-flex align-items-center justify-content-center" style="border:purple solid 3px;">
-                        <img src="./assets/card-back.PNG" class="card-face card-selected-back">
+                    <div class="col d-flex align-items-center justify-content-center">
+                        <div id="card-selected-player4" class="card-selected card-back"></div>
                     </div>
                 </div>
             </div>
-            <div class="col-3" style="border:blue solid 3px;">
+            <div class="col-3">
                 <div class="row h-100 align-items-center justify-content-center">
                     <div class="row" id="player-card">
 
-                        <div class="col">
+                        <div class="col d-flex justify-content-end me-4">
                             <div class="player-profile text-center">
                                 <div> <img id="player4-photo" src="./assets/profile.png"></div>
                                 <div id="player4-name"></div>
@@ -119,14 +116,26 @@
                 </div>
             </div>
         </div>
-        <div class="row" style="border:green solid 3px;">
-            <div class="col-3" style="border:blue solid 3px;"><button id="btnNewGame" class="hide">Jogar
-                    novamente</button></div>
-            <div class="col" style="border:blue solid 3px;">
+        <div class="row">
+            <div class="col-3">
+                <button id="btnNewGame" class="hide">Jogar novamente</button>
 
-                <div class="row h-100 align-items-center justify-content-center">
+                <table id="debug-table">
+                    <thead>
+                        <tr>
+                            <th>JOGADOR</th>
+                            <th class="text-center">CARTAS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="col">
+                <div class="row h-90 align-items-center justify-content-center">
                     <div class="row" id="player-card">
-                        <div class="col col d-flex justify-content-center">
+                        <div class="col d-flex justify-content-end me-4">
                             <div class="player-profile text-center">
                                 <div> <img id="player1-photo" src="./assets/profile.png"></div>
                                 <div id="player1-name"></div>
@@ -143,22 +152,26 @@
                     </div>
                 </div>
             </div>
-            <div class="col-3" style="border:blue solid 3px;">
+            <div class="col-3">
+
 
                 <div id="gameScore">
-                    <p>RODADA <span id="round">Número da rodada</span></p>
-                    <p>PLACAR</p>
+                    <div class="d-flex justify-content-center">
+                        <p>RODADA: <span id="round">Número da rodada</span></p>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <table class="score-table">
+                            <thead>
+                                <tr>
+                                    <th>JOGADOR</th>
+                                    <th class="text-center">PONTOS</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
 
-                    <table class="table table-sm">
-                        <thead>
-                            <tr>
-                                <th>JOGADOR</th>
-                                <th>PONTOS</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
+                    </div>
 
                 </div>
             </div>
@@ -174,4 +187,5 @@
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
         crossorigin="anonymous"></script>
 </body>
+
 </html>

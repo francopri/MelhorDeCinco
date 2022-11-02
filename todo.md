@@ -34,12 +34,13 @@ Definindo quais serão as funcionalidades do jogo
 
 ## TEMP
 ~~- fonte para cartas do jogador~~
-- estilo completo para o score de cada jogador
+~~- estilo completo para o score de cada jogador~~
 - figurinhas para profiles
-- estilizar o placar
-- tirar a concatenaçao das cartas sorteadas
-- tirar linhas dos divs
-- criar painel de debug de cartas sorteadas
+~~- estilizar o placar~~
+~~- tirar a concatenaçao das cartas sorteadas~~
+~~- tirar linhas dos divs~~
+~~- criar painel de debug de cartas sorteadas~~
+- REVISAR atributo playername na classe melhor de cinco
 - Mecanismo de definição dos nomes dos computadores e suas imagens de profile
 - sortear cartas dos computadores: 
   - sortear 1 carta de cada computador

@@ -6,7 +6,6 @@ class MelhorDeCinco {
 
         //nome do jogador será recebido no inputname
         this.playerName = '';
-        this.playerScore = 0;  ////o jogador começa com 0 pontos
         this.cardsSelected = [];
         this.players = [];
 
@@ -68,7 +67,9 @@ class MelhorDeCinco {
 
             if (i < 0) i = 0;
 
-            const card = cards.splice(i, 1);
+            //o método splice retorna um array com um subconjunto dos elementos do array onde ele foi aplicado. Como se pretende obter apenas 1 valor e não um array com 1 valor, foi usado o [0]para pegar o valor do primeiro e único elemento.
+
+            const card = cards.splice(i, 1)[0];  
 
             selectedCards.push(card);
 
@@ -94,6 +95,29 @@ class MelhorDeCinco {
         return name;
 
     }
+
+    selectComputerCards() {
+
+        this.cardsSelected = [null];
+
+        for (let p = 1; p <= 3; p++) {
+
+            let i = Math.floor((Math.random() * this.players[p].cards.length) - 1);
+
+            if (i < 0) i = 0;
+
+            const card = this.players[p].cards.splice(i, 1)[0];
+
+            this.cardsSelected.push(card);
+
+        }
+
+    }
+
+    setPlayerSelectedCard(card){
+        this.cardsSelected[0] = card;
+    }
+
 
 }
 

@@ -11,17 +11,24 @@ body {
 }
 
 #gameScreen {
-    height: 800px;
+    height: 750px;
     border: 3px solid red;
+    background-image: url(../assets/mesa.jpg);
+    color: white;
+    font-weight: bold;
 }
 
-.card-face{
-    background-color: rgba(32, 79, 190, 0.34);
+.card-face {
     border-radius: 10%;
-    border: solid 2px black;
+    border: solid 1px black;
     font-family: 'Play', sans-serif;
     font-size: 40px;
+    color: black;
+}
 
+.card-back {
+    background-image: url("../assets/card-back-2.PNG");
+    background-size: cover;
 }
 
 /* Card Stack */
@@ -33,13 +40,11 @@ body {
 
 .card-stack-back {
     position: absolute;
-    width: 70px;
-    margin: 5px;
-    border: solid 2px black;
+    width: 74px;
     height: 100px;
     border-radius: 10%;
-    background-image: url("../assets/card-back.PNG");
-    background-size: cover;
+    border: solid 1px black;
+
 }
 
 .card-stack-back-1 {
@@ -61,20 +66,21 @@ body {
 .card-stack-back-5 {
     left: 40px;
 }
+
 /* Card Stack - end */
 
 /* Card Selected */
 .card-selected-face {
     width: 90px;
-    font-family: 'Play', sans-serif;
     font-size: 30px;
 }
 
-.card-selected-back {
-    width: 90px;
+.card-selected {
+    width: 88px;
+    height: 120px;
 }
-/* Card Selected - end */
 
+/* Card Selected - end */
 
 /* Card Player */
 .card-player {
@@ -86,9 +92,8 @@ body {
 .card-player:hover {
     cursor: pointer;
 }
+
 /* Card Player - end*/
-
-
 
 /* Player Profile */
 .player-profile {
@@ -100,12 +105,58 @@ body {
 }
 
 .player-profile-score-container {
-    height: 50px;
+    margin-top: 5px;
+    height: 35px;
+    
 }
 
 .player-profile-score {
-    border-radius: 50%;
-    background-color: rgba(25, 138, 129, 0.612);
-    width: 50px;
+    border-radius: 30%;
+    background-color: rgba(255, 140, 0, 0.87);
+    width: 40px;
+    color: black;
+    box-shadow: 2px 2px 5px black;
 }
+
 /* Player Profile - end */
+
+/* Centro da mesa */
+.center-table {
+    background-color: rgba(255, 255, 255, 0.103);
+    border-radius: 20%;
+}
+
+/* Centro da mesa - end */
+
+/* Score */
+.score-table {
+    color: white;
+
+}
+
+.score-table tr {
+    border-bottom: 2px solid #cccccc;
+}
+
+.score-table>thead>tr {
+    background-color: #333333;
+    color: white;
+
+}
+
+.score-table th,
+.score-table td {
+    padding: 6px;
+}
+
+.score-table th {
+    font-size: 12pt;
+}
+
+
+.score-table td {
+    font-weight: normal;
+    font-size: 11pt;
+}
+
+/* Score - end */

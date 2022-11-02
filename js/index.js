@@ -1,37 +1,138 @@
-//MANIPULAÇÃO DO DOM
 
 let melhorDeCinco;
 
-//capturando os elementos de HTML
-const startScreenDiv = document.getElementById('startScreen');
-const newNameInput = document.getElementById('newName');
-const gameScreenDiv = document.getElementById('gameScreen');
-const gameScoreDiv = document.getElementById('gameScore');
-const gameScoreTbody = gameScoreDiv.querySelector('table > tbody');
-const roundSpan = document.getElementById('round');
-const btnStart = document.getElementById('btnStart');
-const btnNewGame = document.getElementById('btnNewGame');
 
-const player1PhotoImg = document.getElementById('player1-photo');
-const player1Name = document.getElementById('player1-name');
-const player1Score = document.getElementById('player1-score');
+//FUNÇOES
 
-const player2PhotoImg = document.getElementById('player2-photo');
-const player2Name = document.getElementById('player2-name');
-const player2Score = document.getElementById('player2-score');
+function init() {
 
-const player3PhotoImg = document.getElementById('player3-photo');
-const player3Name = document.getElementById('player3-name');
-const player3Score = document.getElementById('player3-score');
+  melhorDeCinco = new MelhorDeCinco();
 
-const player4PhotoImg = document.getElementById('player4-photo');
-const player4Name = document.getElementById('player4-name');
-const player4Score = document.getElementById('player4-score');
+  const btnStart = document.getElementById('btnStart');
 
+  btnStart.addEventListener('click', showBoard);
 
-// adicionar o event listener no btnStart
-btnStart.addEventListener('click', () => {
+}
 
+function startGame() {
+
+  //mostra dados dos jogadores
+  initPlayers();
+
+  //Mostrar o score
+  showScoreTable();
+
+  //Mostrar cartas da pessoa
+  showPlayerCards();
+
+  //Mostra tabela de debug das cartas sorteadas
+  showDebugTable();
+
+  //Inicia a primeira rodada
+  startRound();
+
+}
+
+function showScoreTable() {
+
+  const gameScoreDiv = document.getElementById('gameScore');
+  const gameScoreTbody = gameScoreDiv.querySelector('table > tbody');
+
+  gameScoreTbody.innerHTML = '';
+
+  const playersClone = [...melhorDeCinco.players]; //Clonando o array para fazer o sort
+
+  playersClone.sort((a, b) => b.score - a.score)
+
+  for (const player of playersClone) {
+    gameScoreTbody.innerHTML += `<tr>
+    <td>${player.name}</td>
+    <td class="text-center">${player.score}</td>
+  </tr>`
+
+  }
+}
+
+function showDebugTable() {
+
+  const debugTableTbody = document.querySelector('#debug-table tbody');
+
+  debugTableTbody.innerHTML = '';
+
+  for (const player of melhorDeCinco.players) {
+    debugTableTbody.innerHTML += `<tr>
+  <td>${player.name}</td>
+  <td class="text-center">${player.cards}</td>
+</tr>`
+
+  }
+}
+
+function initPlayers() {
+
+  for (let i = 0; i < melhorDeCinco.players.length; i++) {
+
+    const playerPhotoImg = document.getElementById(`player${i + 1}-photo`);
+    const playerName = document.getElementById(`player${i + 1}-name`);
+    const playerScore = document.getElementById(`player${i + 1}-score`);
+
+    playerName.innerText = melhorDeCinco.players[i].name;
+    playerScore.innerText = melhorDeCinco.players[i].score;
+
+  }
+
+}
+
+function showPlayerCards() {
+
+  const cardsPlayer1ContainerDiv = document.getElementById('player1-cards');
+
+  cardsPlayer1ContainerDiv.innerHTML = '';
+
+  for (const card of melhorDeCinco.players[0].cards) {
+    cardsPlayer1ContainerDiv.innerHTML += `<div class="d-flex align-items-center justify-content-center card-face card-player">${card}</div>`;
+  }
+  const cardsPlayerDiv = document.querySelectorAll('.card-player');
+
+  for (const cardDiv of cardsPlayerDiv) {
+
+    cardDiv.addEventListener('click', playerCardClick);
+
+  }
+
+}
+
+function showComputersCards() {
+
+  for (let p = 1; p <= 3; p++) {
+
+    const cardsPlayerContainerDiv = document.getElementById(`player${p + 1}-cards`);
+
+    cardsPlayerContainerDiv.innerHTML = '';
+
+    for (let i = 1; i <= melhorDeCinco.players[p].cards.length; i++) {
+      cardsPlayerContainerDiv.innerHTML += `<div class="card-back card-stack-back card-stack-back-${i}"></div>`;
+    }
+
+  }
+
+}
+
+function showStartScreen() {
+
+  //esconder a startScreen
+  const startScreenDiv = document.getElementById('startScreen');
+  startScreenDiv.classList.add('show');
+
+  //mostrar a gameScreen
+  const gameScreenDiv = document.getElementById('gameScreen');
+  gameScreenDiv.className = 'hide';
+
+}
+
+function showBoard() {
+
+  const newNameInput = document.getElementById('newName');
 
   //se não informou nome, finaliza a função
   if (newNameInput.value === "") {
@@ -39,107 +140,67 @@ btnStart.addEventListener('click', () => {
   }
 
   //esconder a startScreen
+  const startScreenDiv = document.getElementById('startScreen');
   startScreenDiv.classList.add('hide');
 
   //mostrar a gameScreen
+  const gameScreenDiv = document.getElementById('gameScreen');
   gameScreenDiv.className = 'show';
 
-  // melhorDeCinco.playerName = newNameInput.value;
-  melhorDeCinco = new MelhorDeCinco();
   melhorDeCinco.init(newNameInput.value);
 
-});
+  startGame();
+
+}
+
+function startRound() {
+
+  melhorDeCinco.selectComputerCards();
+
+  showComputersCards();
 
 
-//TODO: REMOVER
+}
 
-//define dados de teste
-melhorDeCinco = new MelhorDeCinco();
+function playerCardClick(event) {
+
+  const playerCardValue = +event.currentTarget.innerText;
+
+  event.currentTarget.parentNode.removeChild(event.currentTarget);
+
+  melhorDeCinco.setPlayerSelectedCard(playerCardValue);
+
+  showSelectedPlayerCard(1, playerCardValue);
+  showSelectedPlayerCard(2, melhorDeCinco.cardsSelected[1]);
+  showSelectedPlayerCard(3, melhorDeCinco.cardsSelected[2]);
+  showSelectedPlayerCard(4, melhorDeCinco.cardsSelected[3]);
+
+}
+
+function showSelectedPlayerCard(playerNum, card){
+
+  const cardSelectedPlayer1Div = document.getElementById(`card-selected-player${playerNum}`);
+
+  cardSelectedPlayer1Div.classList.add('card-face');
+
+  cardSelectedPlayer1Div.classList.remove('card-back');
+
+  cardSelectedPlayer1Div.innerText = card;
+
+}
+
+init();
+
+
+
+
+
+
+
+
+//TODO REMOVER
 melhorDeCinco.init("Priscila");
-melhorDeCinco.players[0].score = 25;
-melhorDeCinco.players[1].score = 35;
-melhorDeCinco.players[2].score = 15;
-melhorDeCinco.players[3].score = 5;
+startGame();
 
-
-//mostra dados dos jogadores
-player1Name.innerText = melhorDeCinco.players[0].name + ' - ' + melhorDeCinco.players[0].cards;
-player1Score.innerText = melhorDeCinco.players[0].score;
-
-player2Name.innerText = melhorDeCinco.players[1].name + ' - ' + melhorDeCinco.players[1].cards;
-player2Score.innerText = melhorDeCinco.players[1].score;
-
-player3Name.innerText = melhorDeCinco.players[2].name + ' - ' + melhorDeCinco.players[2].cards;
-player3Score.innerText = melhorDeCinco.players[2].score;
-
-player4Name.innerText = melhorDeCinco.players[3].name + ' - ' + melhorDeCinco.players[3].cards;
-player4Score.innerText = melhorDeCinco.players[3].score;
-
-//Mostrar o score
-gameScoreTbody.innerHTML = '';
-
-let trs = '';
-const playersClone = [...melhorDeCinco.players]; //Clonando o array para fazer o sort
-
-const playersSortedByScore = playersClone.sort((a, b) => b.score - a.score)
-
-for (const player of playersClone) {
-  trs += `<tr>
-  <td>${player.name}</td>
-  <td>${player.score}</td>
-</tr>`
-
-}
-
-gameScoreTbody.innerHTML = trs;
-
-//Mostrar cartas da pessoa
-const cardsPlayer1ContainerDiv = document.getElementById('player1-cards');
-cardsPlayer1ContainerDiv.innerHTML = '';
-
-for (const card of melhorDeCinco.players[0].cards) {
-  cardsPlayer1ContainerDiv.innerHTML += `<div class="d-flex align-items-center justify-content-center card-face card-player">${card}</div>`;
-
-}
-
-const cardsPlayerDiv = document.querySelectorAll('.card-player');
-
-for (const cardDiv of cardsPlayerDiv) {
-  cardDiv.addEventListener('click', (event) => {
-    alert(event.currentTarget.innerText)
-  })
-
-}
-
-//Mostra cartas do computador 1
-const cardsPlayer2ContainerDiv = document.getElementById('player2-cards');
-
-cardsPlayer2ContainerDiv.innerHTML = '';
-
-for (let i = 1; i <= 5; i++) {
-  cardsPlayer2ContainerDiv.innerHTML += `<div class="card-stack-back card-stack-back-${i}"></div>`;
-
-}
-
-//Mostra cartas do computador 2
-const cardsPlayer3ContainerDiv = document.getElementById('player3-cards');
-
-cardsPlayer3ContainerDiv.innerHTML = '';
-
-for (let i = 1; i <= 5; i++) {
-  cardsPlayer3ContainerDiv.innerHTML += `<div class="card-stack-back card-stack-back-${i}"></div>`;
-}
-
-//Mostra cartas do computador 3
-
-const cardsPlayer4ContainerDiv = document.getElementById('player4-cards');
-
-cardsPlayer4ContainerDiv.innerHTML = '';
-
-for (let i = 1; i <= 5; i++) {
-
-  cardsPlayer4ContainerDiv.innerHTML += `<div class="card-stack-back card-stack-back-${i}"></div>`;
-
-}
-
-
+// const roundSpan = document.getElementById('round');
+// const btnNewGame = document.getElementById('btnNewGame');
