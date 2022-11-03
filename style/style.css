@@ -52,6 +52,7 @@ body {
 
 .game-title {
     font-size: 30pt;
+    text-shadow: 2px 2px 4px black;
 }
 
 .card-selected-winner,
@@ -208,6 +209,7 @@ body {
 
 .score-table tr {
     border-bottom: 2px solid #cccccc;
+    
 }
 
 .score-table>thead>tr {
