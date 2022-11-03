@@ -16,4 +16,4 @@
 
 Acesse o jogo: https://francopri.github.io/MelhorDeCinco/
 
-Apresentação: https://bityli.com/oIGCgYkM
+Apresentação: https://docs.google.com/presentation/d/e/2PACX-1vT43-tX0hkI3Y-4gKr4PE8lwQ1Sf9NmJACG0sDChLASwzLyPmf0R2NT6IFIcIpedTV2WGSmLPzt7zXg/pub?start=true&loop=false&delayms=3000
