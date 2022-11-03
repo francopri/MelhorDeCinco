@@ -1,6 +1,5 @@
 ## Jogo Melhor de Cinco - Projeto 1
 
-to DO:
 - são 4 jogadores, sendo 3 jogadores máquina e 1 jogador humano que pode ter o nome definido
 - montar uma tela de start para a pessoa colocar o nome. O nome dos outros jogadores será escolhido a partir de uma lista fixa.
 - as cartas são sorteadas aleatoriamente entre 1 e 20 entre os 4 jogadores, não havendo repetição de cartas.
@@ -35,14 +34,15 @@ Definindo quais serão as funcionalidades do jogo
 ## TEMP
 ~~- fonte para cartas do jogador~~
 ~~- estilo completo para o score de cada jogador~~
-- figurinhas para profiles
 ~~- estilizar o placar~~
 ~~- tirar a concatenaçao das cartas sorteadas~~
 ~~- tirar linhas dos divs~~
 ~~- criar painel de debug de cartas sorteadas~~
 - REVISAR atributo playername na classe melhor de cinco
 - REVISAR NOME PLAYER - PlayerHuman e playerComputer
-- Mecanismo de definição dos nomes dos computadores e suas imagens de profile
+- figurinhas para profiles
+- padronizar o formato da nomenclatura dos ids
+~~- Mecanismo de definição dos nomes dos computadores~~
 ~~- sortear cartas dos computadores: ~~
   ~~- sortear 1 carta de cada computador~~
   ~~- mostrar a carta sorteada no meio~~
@@ -50,11 +50,10 @@ Definindo quais serão as funcionalidades do jogo
 ~~- quando o jogador clicar em uma carta:~~
   ~~- mostrar a carta clicada no meio~~
   ~~- remover a carta da lista do jogador~~
-  - verificar qual jogador teve a maior carta e incrementar a pontuação 
-  - Atualizar placar
-  - verificar se alguém já ganhou
-  - Se ninguém ganhou
-    - limpar as cartas do centro 
-    - sortear cartas dos computadores novamente.  
-  - Se alguém ganhou, mostrar o resultado e um botão para jogar novamente.
-- 
+  ~~- verificar qual jogador teve a maior carta e incrementar a pontuação ~~
+  ~~- Atualizar placar~~
+  ~~- verificar se alguém já ganhou~~
+  ~~- Se ninguém ganhou~~
+    ~~- limpar as cartas do centro ~~
+    ~~- sortear cartas dos computadores novamente.~~
+  ~~- Se alguém ganhou, mostrar o resultado e um botão para jogar novamente.~~
