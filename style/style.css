@@ -57,7 +57,7 @@ body {
 
 .card-selected-back, 
 .card-back {
-    background-image: url("../assets/card-back-2.PNG");
+    background-image: url("../assets/card-back-2.png");
     background-size: cover;
     box-shadow: 2px 2px 2px black;
 }
