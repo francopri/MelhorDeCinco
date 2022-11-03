@@ -1,4 +1,4 @@
-## Jogo Melhor de Cinco - Projeto 1
+## Jogo Melhor de Cinco - Projeto 1 
 
 - são 4 jogadores, sendo 3 jogadores máquina e 1 jogador humano que pode ter o nome definido
 - montar uma tela de start para a pessoa colocar o nome. O nome dos outros jogadores será escolhido a partir de uma lista fixa.
