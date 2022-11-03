@@ -13,3 +13,6 @@
 - Para iniciar o jogo a pessoa deve escolher 1 carta e aguardar a escolha dos computadores.
 - As cartas serão exibidas e o jogador com a maior carta da rodada vence e ganha 1 ponto. 
 - O jogador com o maior número de pontos vence o jogo, que dependendo da dinâmica pode ser finalizado em até 3 rodadas.
+
+JOGO: https://francopri.github.io/MelhorDeCinco/
+Apresentação: 
