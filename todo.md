@@ -12,7 +12,8 @@
 - Exibir os pontos no placar geral
 - Remontar a "mesa" com as novas cartas escolhidas.
 - São necessárias no mínimo 3 rodadas para haver 1 vencedor. 
-- Exibir tela com nome do vencedor e um botão para jogar novamente, com os mesmos jogadores, ou reiniciar tudo.
+- Exibir tela com nome do vencedor e um botão para jogar novamente, com os mesmos jogadores
+- Reiniciar tudo, somente com F5.
 
 ## Escopo do Projeto
 
