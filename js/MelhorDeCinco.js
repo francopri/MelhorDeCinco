@@ -40,6 +40,7 @@ class MelhorDeCinco {
 
     }
 
+
     newGame() {
 
         this.cardsSelected = [];
@@ -97,7 +98,7 @@ class MelhorDeCinco {
 
     /**
      * Sorteia uma lista de cartas para um jogador a partir de um conjunto de cartas possíveis fornecido como parâmetro. As cartas sorteadas para o jogador são removidas da lista de cartas possíveis fornecida.
-     * @param {*} cards lista de cartas possíveis
+     * @param {number[]} cards lista de cartas possíveis
      * @returns a lista de cartas selecionadas para o jogador
      */
     getCardsForPlayer(cards) {

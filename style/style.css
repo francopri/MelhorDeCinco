@@ -127,7 +127,7 @@ body {
 .card-selected-winner {
     color: red;
     transform: rotate(-20deg) rotateY(180deg);
-    transition: transform 0.5s;
+    transition: 0.5s;
 }
 
 .card-selected-face {

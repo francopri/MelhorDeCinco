@@ -41,7 +41,7 @@ Definindo quais serão as funcionalidades do jogo
 - REVISAR atributo playername na classe melhor de cinco
 - REVISAR NOME PLAYER - PlayerHuman e playerComputer
 - figurinhas para profiles
-- padronizar o formato da nomenclatura dos ids
+~~- padronizar o formato da nomenclatura dos ids~~
 ~~- Mecanismo de definição dos nomes dos computadores~~
 ~~- sortear cartas dos computadores: ~~
   ~~- sortear 1 carta de cada computador~~

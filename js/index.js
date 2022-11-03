@@ -39,7 +39,7 @@ function startGame() {
 function showScoreTable() {
 
   //atualiza o número da rodada
-  const currentRoundSpan = document.getElementById('current-round');
+  const currentRoundSpan = document.getElementById('currentRound');
 
   currentRoundSpan.innerText = melhorDeCinco.currentRound;
 
@@ -68,9 +68,9 @@ function initPlayers() {
 
   for (let i = 0; i < melhorDeCinco.players.length; i++) {
 
-    const playerPhotoImg = document.getElementById(`player${i + 1}-photo`);
-    const playerName = document.getElementById(`player${i + 1}-name`);
-    const playerScore = document.getElementById(`player${i + 1}-score`);
+    const playerPhotoImg = document.getElementById(`player${i + 1}Photo`);
+    const playerName = document.getElementById(`player${i + 1}Name`);
+    const playerScore = document.getElementById(`player${i + 1}Score`);
 
     playerName.innerText = melhorDeCinco.players[i].name;
     playerScore.innerText = melhorDeCinco.players[i].score;
@@ -81,7 +81,7 @@ function initPlayers() {
 
 function showPlayerCards() {
 
-  const cardsPlayer1ContainerDiv = document.getElementById('player1-cards');
+  const cardsPlayer1ContainerDiv = document.getElementById('player1Cards');
 
   cardsPlayer1ContainerDiv.innerHTML = '';
 
@@ -115,7 +115,7 @@ function showComputersCardsStack() {
 
   for (let p = 1; p <= 3; p++) {
 
-    const cardsPlayerContainerDiv = document.getElementById(`player${p + 1}-cards`);
+    const cardsPlayerContainerDiv = document.getElementById(`player${p + 1}Cards`);
 
     cardsPlayerContainerDiv.innerHTML = '';
 
@@ -132,7 +132,7 @@ function resetSelectedCards() {
 
   for (let p = 1; p <= 4; p++) {
 
-    const cardSelectedPlayer1Div = document.getElementById(`card-selected-player${p}`);
+    const cardSelectedPlayer1Div = document.getElementById(`cardSelectedPlayer${p}`);
 
     cardSelectedPlayer1Div.classList.remove('card-selected-winner');
 
@@ -222,7 +222,7 @@ function playerCardClick(event) {
 
   //destaca a carta que ganhou a rodada
 
-  const cardWinnerDiv = document.getElementById(`card-selected-player${result.indexPlayerRoundWinner + 1}`);
+  const cardWinnerDiv = document.getElementById(`cardSelectedPlayer${result.indexPlayerRoundWinner + 1}`);
 
   cardWinnerDiv.classList.remove('card-selected-face');
   cardWinnerDiv.classList.add('card-selected-winner');
@@ -245,11 +245,11 @@ function playerCardClick(event) {
     setTimeout(() => {
       startRound();
       configPlayerCardsListener(true);
-    }, 1500);
+    }, 2500);
 
   }
   else {
-    showWinners();
+    setTimeout(showWinners, 2000);
   }
 
 }
@@ -258,7 +258,7 @@ function showPlayersScore() {
 
   for (let i = 0; i <= 3; i++) {
 
-    const playerScoreDiv = document.getElementById(`player${i + 1}-score`);
+    const playerScoreDiv = document.getElementById(`player${i + 1}Score`);
 
     playerScoreDiv.innerText = melhorDeCinco.players[i].score;
 
@@ -268,7 +268,7 @@ function showPlayersScore() {
 
 function showSelectedPlayerCardFace(playerNum, card) {
 
-  const cardSelectedPlayer1Div = document.getElementById(`card-selected-player${playerNum}`);
+  const cardSelectedPlayer1Div = document.getElementById(`cardSelectedPlayer${playerNum}`);
 
   cardSelectedPlayer1Div.classList.add('card-selected-face');
 
@@ -282,13 +282,16 @@ function showSelectedPlayerCardFace(playerNum, card) {
 function showWinners() {
 
   // obter array de jogar(es) vencedor(es)
+
   const winners = melhorDeCinco.getWinners();
+
 
   // mostrar o status do resultado (vitória ou empate)
 
   const resultStatusDiv = document.getElementById('resultStatus');
 
   resultStatusDiv.innerText = winners.length > 1 ? 'Houve um empate!!' : 'Temos um vencedor!';
+
 
   // mostrar o conteúdo do(s) vencedor(es)
 
