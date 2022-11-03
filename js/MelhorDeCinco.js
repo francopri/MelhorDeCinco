@@ -4,8 +4,6 @@ class MelhorDeCinco {
 
     constructor() {
 
-        //nome do jogador será recebido no inputname
-        this.playerName = '';
         this.players = [];
         this.cardsSelected = null;
         this.currentRound = 0;
@@ -14,16 +12,13 @@ class MelhorDeCinco {
 
     init(playerName) {
 
-        //configura o nome da pessoa
-        this.playerName = playerName;
-
         //define lista de nomes
-        const names = ['Patrícia', 'Karen', 'Jino', 'Daniele', 'Guilherme', 'João', 'Marcelo', 'Claudia', 'Cíntia', 'Joana', 'Sofia', 'Gabriel', 'Minie', 'Jujuba', 'Amora', 'Rodrigo'];
+        const playersConfig = this.getPlayersConfig();
 
 
         //instanciando humano
 
-        const p1 = new Player(1, this.playerName, 'profile.png');
+        const p1 = new Player(1, playerName, 'profile.png');
 
         this.players.push(p1);
 
@@ -32,14 +27,15 @@ class MelhorDeCinco {
 
         for (let p = 2; p <= 4; p++) {
 
-            const player = new Player(p, this.getRandomNamePlayer(names), 'profile.png');
+            const playerConfig = this.getRandomPlayerConfig(playersConfig);
+
+            const player = new Player(p, playerConfig.name, playerConfig.imgCode);
 
             this.players.push(player);
 
         }
 
     }
-
 
     newGame() {
 
@@ -123,19 +119,42 @@ class MelhorDeCinco {
     }
 
     /**
-     * Sorteia um nome para um jogador a partir de um conjunto de nomes possíveis fornecido como parâmetro. O nome sorteado é removido da lista de nomes possíveis.
-     * @param {*} names lista de nomes possíveis
-     * @returns 
+     * Sorteia um nome e uma imagem para um jogador a partir de um objeto de configuração que possui nomes e imagens  possíveis. O método altera o objeto de configuração.
+     * @param {*} playerConfigs objeto de configuração que possui nomes e imagens possíveis 
+     * @returns Objeto com o nome e o código de imagem sorteados
      */
-    getRandomNamePlayer(names) {
+    getRandomPlayerConfig(playerConfigs) {
 
-        let i = Math.floor((Math.random() * names.length) - 1);
+        // sorteia um indice no array de players
 
-        if (i < 0) i = 0;
+        const ip = Math.floor(Math.random() * playerConfigs.players.length);
 
-        const name = names.splice(i, 1)[0];
+        const player = playerConfigs.players.splice(ip, 1)[0];
 
-        return name;
+
+        // sorteia um indice no array de tipos de acordo com o tipo do players sorteado
+
+        let imgCode;
+
+        if (player.type === 'woman') {
+            
+            const itw = Math.floor(Math.random() * playerConfigs.womanImgCodes.length);
+
+            imgCode = playerConfigs.womanImgCodes.splice(itw, 1)[0];
+
+        }
+        else {
+
+            const itm = Math.floor(Math.random() * playerConfigs.manImgCodes.length);
+
+            imgCode = playerConfigs.manImgCodes.splice(itm, 1)[0];
+
+        }
+
+        return {
+            name: player.name,
+            imgCode
+        };
 
     }
 
@@ -254,6 +273,70 @@ class MelhorDeCinco {
 
 
     }
+
+    getPlayersConfig() {
+
+        return {
+            womanImgCodes: ['woman1', 'woman2', 'woman3'],
+            manImgCodes: ['man1', 'man2', 'man3'],
+            players: [
+                {
+                    name: 'Patrícia',
+                    type: 'woman',
+                },
+                {
+                    name: 'Karen',
+                    type: 'woman',
+                },
+                {
+                    name: 'Jino',
+                    type: 'man',
+                },
+                {
+                    name: 'Daniele',
+                    type: 'woman',
+                },
+                {
+                    name: 'Guilherme',
+                    type: 'man',
+                },
+                {
+                    name: 'João',
+                    type: 'man',
+                },
+                {
+                    name: 'Marcelo',
+                    type: 'man',
+                },
+                {
+                    name: 'Claudia',
+                    type: 'woman',
+                },
+                {
+                    name: 'Cíntia',
+                    type: 'woman',
+                },
+                {
+                    name: 'Joana',
+                    type: 'woman',
+                },
+                {
+                    name: 'Sofia',
+                    type: 'woman',
+                },
+                {
+                    name: 'Gabriel',
+                    type: 'man',
+                },
+                {
+                    name: 'Rodrigo',
+                    type: 'man',
+                }
+            ],
+        };
+
+    }
+
 
 }
 

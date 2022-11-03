@@ -68,10 +68,11 @@ function initPlayers() {
 
   for (let i = 0; i < melhorDeCinco.players.length; i++) {
 
-    const playerPhotoImg = document.getElementById(`player${i + 1}Photo`);
+    const playerPhoto = document.getElementById(`player${i + 1}Photo`);
     const playerName = document.getElementById(`player${i + 1}Name`);
     const playerScore = document.getElementById(`player${i + 1}Score`);
 
+    playerPhoto.classList.add(`player-profile-img-${melhorDeCinco.players[i].imgCode}`);
     playerName.innerText = melhorDeCinco.players[i].name;
     playerScore.innerText = melhorDeCinco.players[i].score;
 

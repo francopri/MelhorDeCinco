@@ -140,9 +140,8 @@ body {
     transform: rotateY(180deg);
 }
 
-
-
 /* Card Selected - end */
+
 
 /* Card Player */
 
@@ -162,18 +161,8 @@ body {
 
 /* Player Profile */
 
-.player-profile {
-    width: 90px;
-
-}
-
 .player-name {
     text-shadow: 2px 2px 5px black;
-}
-
-.player-profile img {
-    width: 80px;
-
 }
 
 .player-profile-score-container {
@@ -189,7 +178,55 @@ body {
     box-shadow: 2px 2px 5px black;
 }
 
+.player-profile-img {
+    width: 90px;
+    height: 90px;
+}
+
+#player1Photo {
+    background-size: 90px 90px;
+    background-image: url('../assets/profile.png');
+    background-repeat: no-repeat;
+}
+
+.player-profile-img-woman1,
+.player-profile-img-woman2,
+.player-profile-img-woman3,
+.player-profile-img-man1,
+.player-profile-img-man2,
+.player-profile-img-man3 {
+    background-size: 269px 180px;
+    background-image: url('../assets/profiles.png');
+}
+
+.player-profile-img-woman1 {
+    background-position: 0 0;
+}
+
+.player-profile-img-woman2 {
+    background-position: -90px 0;
+}
+
+.player-profile-img-woman3 {
+    background-position:  -180px 0;
+}
+
+.player-profile-img-man1 {
+    background-position:  0 -90px;
+}
+
+.player-profile-img-man2 {
+    background-position: -90px -90px;
+}
+
+.player-profile-img-man3 {
+    background-position: -180px -90px;
+}
+
 /* Player Profile - end */
+
+
+
 
 /* Centro da mesa */
 
@@ -233,3 +270,5 @@ body {
 }
 
 /* Score - end */
+
+

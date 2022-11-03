@@ -39,9 +39,8 @@ Definindo quais serão as funcionalidades do jogo
 ~~- tirar a concatenaçao das cartas sorteadas~~
 ~~- tirar linhas dos divs~~
 ~~- criar painel de debug de cartas sorteadas~~
-- REVISAR atributo playername na classe melhor de cinco
-- REVISAR NOME PLAYER - PlayerHuman e playerComputer
-- figurinhas para profiles
+~~- REVISAR atributo playername na classe melhor de cinco~~
+~~- figurinhas para profiles~~
 ~~- padronizar o formato da nomenclatura dos ids~~
 ~~- Mecanismo de definição dos nomes dos computadores~~
 ~~- sortear cartas dos computadores: ~~

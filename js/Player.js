@@ -1,10 +1,10 @@
 class Player {
 
-    constructor(number, name, photoFileName) {
+    constructor(number, name, imgCode) {
 
         this.number = number;
         this.name = name;
-        this.photoFileName = photoFileName;
+        this.imgCode = imgCode;
         this.score = 0;
 
     }
