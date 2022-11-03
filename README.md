@@ -14,5 +14,6 @@
 - As cartas serão exibidas e o jogador com a maior carta da rodada vence e ganha 1 ponto. 
 - O jogador com o maior número de pontos vence o jogo, que dependendo da dinâmica pode ser finalizado em até 3 rodadas.
 
-JOGO: https://francopri.github.io/MelhorDeCinco/
-Apresentação: 
+Acesse o jogo: https://francopri.github.io/MelhorDeCinco/
+
+Apresentação: https://bityli.com/oIGCgYkM
