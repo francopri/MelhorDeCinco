@@ -1,4 +1,4 @@
-html, 
+html,
 body {
     height: 100%;
 }
@@ -15,43 +15,56 @@ body {
     display: flex;
 }
 
-.game-screen-container{
-background-color: #333333;
+.game-screen-container {
+    background-color: #333333;
 }
 
+#startScreen {
+    text-align: center;
+    padding: 50px;
+    background-color: #ffffff;
+}
+
+#startScreen h1,
+#startScreen h2{
+    padding-bottom: 50px;
+}
 #gameScreen {
     border: 1px solid black;
     box-shadow: 2px 2px 20px black;
     background-image: url(../assets/mesa.jpg);
     color: white;
     font-weight: bold;
-    padding-bottom: 6px;
+    padding: 20px;
 
 }
 
+.game-title {
+    font-size: 30pt;
+}
+
+.card-selected-winner,
+.card-selected-face,
 .card-face {
     border-radius: 10%;
     border: solid 1px black;
     font-family: 'Play', sans-serif;
     font-size: 40px;
     color: black;
-    box-shadow: 2px 2px 2px black;
+    box-shadow: -2px 2px 2px black;
     background-color: rgb(222, 214, 214);
-
 }
 
-.card-face-winner {
-    color: red;
-}
-
+.card-selected-back, 
 .card-back {
     background-image: url("../assets/card-back-2.PNG");
     background-size: cover;
     box-shadow: 2px 2px 2px black;
-
 }
 
+
 /* Card Stack */
+
 .cards-stack {
     position: relative;
     top: 0px;
@@ -90,19 +103,37 @@ background-color: #333333;
 /* Card Stack - end */
 
 /* Card Selected */
-.card-selected-face {
-    width: 90px;
-    font-size: 30px;
-}
 
-.card-selected {
+.card-selected-winner,
+.card-selected-face,
+.card-selected-back,
+.card-selected-placeholder {
     width: 88px;
     height: 120px;
 }
 
+.card-selected-winner {
+    color: red;
+    transform: rotate(-20deg) rotateY(180deg);
+    transition: transform 0.5s;
+}
+
+.card-selected-face {
+    transition: 0.5s;
+  
+}
+
+.card-selected-face,
+.card-selected-face-text {
+    transform: rotateY(180deg);
+}
+
+
+
 /* Card Selected - end */
 
 /* Card Player */
+
 .card-player {
     margin: 5px;
     width: 70px;
@@ -111,6 +142,8 @@ background-color: #333333;
 
 .card-player:hover {
     cursor: pointer;
+    color: red;
+    
 }
 
 /* Card Player - end*/
@@ -122,7 +155,7 @@ background-color: #333333;
 
 }
 
-.player-name{
+.player-name {
     text-shadow: 2px 2px 5px black;
 }
 
@@ -147,6 +180,7 @@ background-color: #333333;
 /* Player Profile - end */
 
 /* Centro da mesa */
+
 .center-table {
     background-color: rgba(255, 255, 255, 0.164);
     border-radius: 20%;
@@ -156,9 +190,9 @@ background-color: #333333;
 /* Centro da mesa - end */
 
 /* Score */
+
 .score-table {
     color: white;
-
 }
 
 .score-table tr {
@@ -179,7 +213,6 @@ background-color: #333333;
 .score-table th {
     font-size: 12pt;
 }
-
 
 .score-table td {
     font-weight: normal;

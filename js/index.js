@@ -12,18 +12,24 @@ function init() {
 
   btnStart.addEventListener('click', showBoard);
 
+  document.getElementById('newName').addEventListener('keydown', (event) => {
+    if (event.code === 'Enter') showBoard();
+  });
+
+  document.getElementById('btnNewGame').addEventListener('click', newGame);
+
 }
 
 function startGame() {
+
+  // iniciar uma nova partida
+  melhorDeCinco.newGame();
 
   //mostra dados dos jogadores
   initPlayers();
 
   //Mostrar cartas da pessoa
   showPlayerCards();
-
-  //Mostra tabela de debug das cartas sorteadas
-  showDebugTable();
 
   //Inicia a primeira rodada
   startRound();
@@ -56,21 +62,6 @@ function showScoreTable() {
 
   }
 
-}
-
-function showDebugTable() {
-
-  const debugTableTbody = document.querySelector('#debug-table tbody');
-
-  debugTableTbody.innerHTML = '';
-
-  for (const player of melhorDeCinco.players) {
-    debugTableTbody.innerHTML += `<tr>
-  <td>${player.name}</td>
-  <td class="text-center">${player.cards}</td>
-</tr>`
-
-  }
 }
 
 function initPlayers() {
@@ -138,18 +129,19 @@ function showComputersCardsStack() {
 
 function resetSelectedCards() {
 
+
   for (let p = 1; p <= 4; p++) {
 
     const cardSelectedPlayer1Div = document.getElementById(`card-selected-player${p}`);
 
-    cardSelectedPlayer1Div.classList.remove('card-face');
+    cardSelectedPlayer1Div.classList.remove('card-selected-winner');
+
+    cardSelectedPlayer1Div.classList.remove('card-selected-face');
 
     cardSelectedPlayer1Div.innerText = '';
 
     if (p != 1) {
-
-      cardSelectedPlayer1Div.classList.add('card-back');
-
+      cardSelectedPlayer1Div.classList.add('card-selected-back');
     }
 
   }
@@ -173,7 +165,7 @@ function showBoard() {
   const newNameInput = document.getElementById('newName');
 
   //se não informou nome, finaliza a função
-  if (newNameInput.value === "") {
+  if (!newNameInput.value || newNameInput.value.trim() === "") {
     return;
   }
 
@@ -183,7 +175,8 @@ function showBoard() {
 
   //mostrar a gameScreen
   const gameScreenDiv = document.getElementById('gameScreen');
-  gameScreenDiv.className = 'show';
+  gameScreenDiv.classList.remove('hide');
+
 
   melhorDeCinco.init(newNameInput.value);
 
@@ -223,22 +216,16 @@ function playerCardClick(event) {
 
 
   //executa a jogada da rodada
+
   const result = melhorDeCinco.playRound(playerCardValue);
-
-
-  //remover o destaque da carta vencedora da rodada anterior
-
-  const currentCardWinnerDiv = document.querySelector('.card-face-winner');
-
-  if (currentCardWinnerDiv)
-    currentCardWinnerDiv.classList.remove('card-face-winner');
 
 
   //destaca a carta que ganhou a rodada
 
   const cardWinnerDiv = document.getElementById(`card-selected-player${result.indexPlayerRoundWinner + 1}`);
 
-  cardWinnerDiv.classList.add('card-face-winner');
+  cardWinnerDiv.classList.remove('card-selected-face');
+  cardWinnerDiv.classList.add('card-selected-winner');
 
 
   //atualizar tabela de score
@@ -258,8 +245,11 @@ function playerCardClick(event) {
     setTimeout(() => {
       startRound();
       configPlayerCardsListener(true);
-    }, 3000);
+    }, 1500);
 
+  }
+  else {
+    showWinners();
   }
 
 }
@@ -280,26 +270,61 @@ function showSelectedPlayerCardFace(playerNum, card) {
 
   const cardSelectedPlayer1Div = document.getElementById(`card-selected-player${playerNum}`);
 
-  cardSelectedPlayer1Div.classList.add('card-face');
+  cardSelectedPlayer1Div.classList.add('card-selected-face');
 
-  cardSelectedPlayer1Div.classList.remove('card-back');
+  cardSelectedPlayer1Div.classList.remove('card-selected-back');
 
-  cardSelectedPlayer1Div.innerText = card;
+  // cardSelectedPlayer1Div.innerText = card;
+  cardSelectedPlayer1Div.innerHTML = `<div class="card-selected-face-text">${card}</div>`;
 
 }
+
+function showWinners() {
+
+  // obter array de jogar(es) vencedor(es)
+  const winners = melhorDeCinco.getWinners();
+
+  // mostrar o status do resultado (vitória ou empate)
+
+  const resultStatusDiv = document.getElementById('resultStatus');
+
+  resultStatusDiv.innerText = winners.length > 1 ? 'Houve um empate!!' : 'Temos um vencedor!';
+
+  // mostrar o conteúdo do(s) vencedor(es)
+
+  const winnersContentDiv = document.getElementById('winnersContent');
+
+  winnersContentDiv.innerHTML = '';
+
+  for (const player of winners) {
+
+    const playerProfileDiv = document.getElementById(`player${player.number}Profile`);
+
+    const playerProfileDivClone = playerProfileDiv.cloneNode(true);
+
+    winnersContentDiv.appendChild(playerProfileDivClone);
+
+  }
+
+  const resultModal = new bootstrap.Modal('#resultModal');
+
+  resultModal.show();
+
+}
+
+function newGame() {
+
+  const resultModalEl = document.querySelector('#resultModal');
+
+  const resultModal = bootstrap.Modal.getInstance(resultModalEl);
+
+  resultModal.hide();
+
+  startGame();
+
+}
+
 
 init();
 
 
-
-
-
-
-
-
-//TODO REMOVER
-melhorDeCinco.init("Priscila");
-startGame();
-
-// const roundSpan = document.getElementById('round');
-// const btnNewGame = document.getElementById('btnNewGame');

@@ -6,10 +6,9 @@ class MelhorDeCinco {
 
         //nome do jogador será recebido no inputname
         this.playerName = '';
-        this.cardsSelected = [];
         this.players = [];
+        this.cardsSelected = null;
         this.currentRound = 0;
-
 
     }
 
@@ -21,17 +20,30 @@ class MelhorDeCinco {
         //define lista de nomes
         const names = ['Patrícia', 'Karen', 'Jino', 'Daniele', 'Guilherme', 'João', 'Marcelo', 'Claudia', 'Cíntia', 'Joana', 'Sofia', 'Gabriel', 'Minie', 'Jujuba', 'Amora', 'Rodrigo'];
 
-        //instanciando cada jogador
-        const p1 = new Player(this.playerName, 'profile.png');
-        const p2 = new Player(this.getRandomNamePlayer(names), 'profile.png');
-        const p3 = new Player(this.getRandomNamePlayer(names), 'profile.png');
-        const p4 = new Player(this.getRandomNamePlayer(names), 'profile.png');
 
-        //inclui cada jogador na lista de jogadores
+        //instanciando humano
+
+        const p1 = new Player(1, this.playerName, 'profile.png');
+
         this.players.push(p1);
-        this.players.push(p2);
-        this.players.push(p3);
-        this.players.push(p4);
+
+
+        //instanciando computadores
+
+        for (let p = 2; p <= 4; p++) {
+
+            const player = new Player(p, this.getRandomNamePlayer(names), 'profile.png');
+
+            this.players.push(player);
+
+        }
+
+    }
+
+    newGame() {
+
+        this.cardsSelected = [];
+        this.currentRound = 0;
 
         //cria uma lista de cartas possíveis
         const cards = [];
@@ -40,17 +52,46 @@ class MelhorDeCinco {
             cards.push(ct);
         }
 
-        //obter as cartas sorteadas para cada jogador
-        const p1Cards = this.getCardsForPlayer(cards);
-        const p2Cards = this.getCardsForPlayer(cards);
-        const p3Cards = this.getCardsForPlayer(cards);
-        const p4Cards = this.getCardsForPlayer(cards);
 
-        //configurando as cartas sorteadas de cada jogador em seu respectivo objeto
-        p1.setCards(p1Cards);
-        p2.setCards(p2Cards);
-        p3.setCards(p3Cards);
-        p4.setCards(p4Cards);
+        // sorteando a ordem dos jogadores para o sorteio das cartas
+
+        const playersOrder = this.getRandomIndexesOfPlayers();
+
+
+        // sorteando as cartas para os jogadores
+
+        for (const po of playersOrder) {
+
+            //obter as cartas sorteadas para cada jogador
+            const playerCards = this.getCardsForPlayer(cards);
+
+            //configurando as cartas sorteadas de cada jogador em seu respectivo objeto
+            this.players[po].setCards(playerCards);
+
+            //iniciando score
+            this.players[po].score = 0;
+
+        }
+
+    }
+
+    getRandomIndexesOfPlayers() {
+
+        const playersIndex = [0, 1, 2, 3];
+
+        const playersOrder = [];
+
+        for (let p = 0; p <= 3; p++) {
+
+            let i = Math.floor((Math.random() * playersIndex.length));
+
+            const randomPlayerIndex = playersIndex.splice(i, 1)[0];
+
+            playersOrder.push(randomPlayerIndex);
+
+        }
+
+        return playersOrder;
 
     }
 
@@ -91,7 +132,7 @@ class MelhorDeCinco {
 
         if (i < 0) i = 0;
 
-        const name = names.splice(i, 1);
+        const name = names.splice(i, 1)[0];
 
         return name;
 
@@ -155,7 +196,7 @@ class MelhorDeCinco {
 
         //verifica o jogador com maior pontuação após a rodada
 
-        const scoreDiff = this.getScoreDiff();
+        const scoreDiff = this.getScoreStatus().diff;
 
         const remaingRounds = this.players[0].cards.length;
 
@@ -174,7 +215,7 @@ class MelhorDeCinco {
 
     }
 
-    getScoreDiff() {
+    getScoreStatus() {
 
         let scoreFirst = -1;
 
@@ -194,9 +235,25 @@ class MelhorDeCinco {
 
         }
 
-        return scoreFirst - scoreSecond;
+        return {
+            scoreFirst,
+            scoreSecond,
+            diff: scoreFirst - scoreSecond
+        };
 
     }
+
+    getWinners() {
+
+        const scoreWinner = this.getScoreStatus().scoreFirst;
+
+        const winners = this.players.filter(p => p.score === scoreWinner);
+
+        return winners;
+
+
+    }
+
 }
 
 
