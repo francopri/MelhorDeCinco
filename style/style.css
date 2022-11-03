@@ -16,19 +16,30 @@ body {
 }
 
 .game-screen-container {
-    background-color: #333333;
+    background-color: #545454;
 }
 
 #startScreen {
     text-align: center;
     padding: 50px;
-    background-color: #ffffff;
+    background-color: #e3e0e0;
+    box-shadow: 2px 2px 20px black;
+    border-radius: 20% 20% 20% 20%;
+
+}
+
+#startScreen h1 {
+    color: rgb(217, 143, 5);
+    text-shadow:
+        2px 2px 4px black, 1px 1px 5px grey;
+        font-size: 50px;
 }
 
 #startScreen h1,
-#startScreen h2{
+#startScreen h2 {
     padding-bottom: 50px;
 }
+
 #gameScreen {
     border: 1px solid black;
     box-shadow: 2px 2px 20px black;
@@ -55,7 +66,7 @@ body {
     background-color: rgb(222, 214, 214);
 }
 
-.card-selected-back, 
+.card-selected-back,
 .card-back {
     background-image: url("../assets/card-back-2.png");
     background-size: cover;
@@ -120,7 +131,7 @@ body {
 
 .card-selected-face {
     transition: 0.5s;
-  
+
 }
 
 .card-selected-face,
@@ -143,7 +154,7 @@ body {
 .card-player:hover {
     cursor: pointer;
     color: red;
-    
+
 }
 
 /* Card Player - end*/
